@@ -1,0 +1,46 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Clarification System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Applicant Tracking System - Clarifications</h1>
+
+    <?php if (isset($successMessage)) : ?>
+        <p class="success"><?php echo $successMessage; ?></p>
+    <?php endif; ?>
+
+    <?php if (isset($errorMessage)) : ?>
+        <p class="error"><?php echo $errorMessage; ?></p>
+    <?php endif; ?>
+
+    <form method="POST" action="">
+        <label for="clarification_message">Submit a Clarification:</label><br>
+        <textarea id="clarification_message" name="clarification_message" rows="4" cols="50" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Your Clarifications</h2>
+    <ul>
+        <?php foreach ($clarifications as $clarification) : ?>
+            <li>
+                <strong><?php echo htmlspecialchars($clarification['created_at']); ?>:</strong>
+                <?php echo htmlspecialchars($clarification['message']); ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+
+
+
+
+
+
+</body>
+</html>
